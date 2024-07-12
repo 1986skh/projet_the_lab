@@ -1,14 +1,14 @@
-const faker = require('@faker-js/faker');
+const faker = require('faker');
+
 describe('tester App the lab', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
   });
-  it('passe', () => {
-  });
-  it('tester les boutons d\'inscription ', () => {
+
+  it('tester les boutons d\'inscription', () => {
     cy.get('a[href="/signup"]').contains("Inscription").click();
     cy.url().should('include', '/signup');
-    cy.get('#lastname').type(faker.name.lastName()).wait(1000);
+    cy.get('#lastname').type(faker.name.findName()).wait(1000);
     cy.get("#firstname").type(faker.name.firstName()).wait(1000);
     cy.get("#birthday").type("2000-05-12").wait(1000);
     cy.get("#email").type(faker.internet.email()).wait(1000);
@@ -18,8 +18,8 @@ describe('tester App the lab', () => {
     cy.get('#terms').check().wait(1000);
     cy.get('#terms').should('be.checked').wait(1000);
     cy.get('button').contains("Je M'inscris").click().wait(1500);
-   
   });
+
   it('tester le bouton de connexion', () => {
     cy.get('a[href="/login"]').contains("Connexion").click();
     cy.url().should('include', '/login');
@@ -29,5 +29,3 @@ describe('tester App the lab', () => {
     cy.url().should('include','//localhost:3000/').wait(1000);
   });
 });
-
-
