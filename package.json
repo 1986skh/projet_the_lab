@@ -17,7 +17,8 @@
     "dev": "concurrently \"npm run dev-front\" \"npm run dev-back\"",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:report": "cypress run --reporter mochawesome"
+    "cypress:report": "cypress run --reporter mochawesome",
+      "generate:report": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json && marge cypress/reports/merged-report.json -o cypress/reports"
   },
   "keywords": [],
   "author": "Wild Code School",

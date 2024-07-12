@@ -1,0 +1,36 @@
+name: cypressCI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.11.1"
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Install mochawesome-merge and mochawesome-report-generator
+        run: npm install -D mochawesome-merge mochawesome-report-generator
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Generate test report
+        run: npm run generate:report
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-test-report
+          path: cypress/reports/index.html
