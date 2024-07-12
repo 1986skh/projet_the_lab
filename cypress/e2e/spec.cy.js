@@ -1,5 +1,4 @@
 const faker = require('faker');
-const faker = require('@faker-js/faker');
 describe('tester App the lab', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
