@@ -24,6 +24,7 @@
   "author": "Wild Code School",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "cypress-mochawesome-reporter": "^3.8.2",
