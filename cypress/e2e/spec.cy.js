@@ -20,7 +20,7 @@ describe('tester app the lab', () => {
     cy.get('button').contains("Je M'inscris").click().wait(1500);
    
   });
-  it('tester les boutons de connexion', () => {
+  it('tester le bouton de connexion', () => {
     cy.get('a[href="/login"]').contains("Connexion").click();
     cy.url().should('include', '/login');
     cy.get("#email").type("khelifa.smail08@gmail.com").wait(1000);
@@ -28,7 +28,6 @@ describe('tester app the lab', () => {
     cy.get('button').contains("Se Connecter").click().wait(1500); 
     cy.url().should('include','//localhost:3000/').wait(1000);
   });
-
 });
 
 
