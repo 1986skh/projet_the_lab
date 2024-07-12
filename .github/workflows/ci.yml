@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install additional dependencies
-        run: npm install --save-dev @faker-js/faker mochawesome-merge mochawesome-report-generator
+      - name: Install faker
+        run: npm install --save-dev faker
 
       - name: Run Cypress tests
         run: npx cypress run
